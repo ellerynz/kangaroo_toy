@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import StarRating from './StarRating';
 
 const ReviewDisplay = ({name, rating, onRemove=f=>f}) => {
   return (
     <li>
       <hr />
       <p>{name}</p>
-      <p>{rating}</p>
+      <StarRating starsSelected={rating} />
       <button onClick={onRemove}>Delete</button>
     </li>
   )
