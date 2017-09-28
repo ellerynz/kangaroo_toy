@@ -29,6 +29,11 @@ class ReviewList extends React.Component {
     this.setState({reviews});
   }
 
+  removeReview(id) {
+    const reviews = this.state.reviews.filter(review => review.id != id);
+    this.setState({reviews});
+  }
+
   render() {
     return (
       <div>
@@ -38,8 +43,10 @@ class ReviewList extends React.Component {
             this.state.reviews.map(review =>
               <ReviewDisplay
                 key={review.id}
+                id={review.id}
                 name={review.name}
                 rating={review.rating}
+                onRemove={() => this.removeReview(review.id)}
               />
             )
           }

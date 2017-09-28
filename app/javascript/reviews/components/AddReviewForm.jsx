@@ -25,6 +25,7 @@ const AddReviewForm = ({onSubmit=f=>f}) => {
         ref={input => _rating = input}
         type="number"
         placeholder="Rating"
+        required
       />
       <input type="submit" />
     </form>

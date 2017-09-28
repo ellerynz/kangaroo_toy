@@ -1,22 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class ReviewDisplay extends React.Component {
-
-  constructor () {
-    super();
-  }
-
-  render() {
-    return (
-      <li>
-        <hr />
-        <p>{this.props.name}</p>
-        <p>{this.props.rating}</p>
-      </li>
-    );
-  }
-
+const ReviewDisplay = ({name, rating, onRemove=f=>f}) => {
+  return (
+    <li>
+      <hr />
+      <p>{name}</p>
+      <p>{rating}</p>
+      <button onClick={onRemove}>Delete</button>
+    </li>
+  )
 }
 
 ReviewDisplay.defaultProps = {
@@ -26,7 +19,8 @@ ReviewDisplay.defaultProps = {
 
 ReviewDisplay.propTypes = {
   name: PropTypes.string,
-  rating: PropTypes.number
+  rating: PropTypes.number,
+  onRemove: PropTypes.func
 }
 
 export default ReviewDisplay
