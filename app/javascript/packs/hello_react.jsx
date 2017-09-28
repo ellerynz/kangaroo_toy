@@ -19,6 +19,12 @@ Hello.propTypes = {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const reviews = [
+    { 'title': 'foo' },
+    { 'title': 'bar' },
+    { 'title': 'baz' }
+  ];
+
   ReactDOM.render(
     <Hello name="React" />,
     document.body.appendChild(document.createElement('div')),
