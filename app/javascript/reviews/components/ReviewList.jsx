@@ -34,6 +34,13 @@ class ReviewList extends React.Component {
     this.setState({reviews});
   }
 
+  rateReview(id, rating) {
+    const reviews = this.state.reviews.map(review =>
+      review.id === id ? {...review, rating} : review
+    );
+    this.setState({reviews});
+  }
+
   render() {
     return (
       <div>
@@ -47,6 +54,7 @@ class ReviewList extends React.Component {
                 name={review.name}
                 rating={review.rating}
                 onRemove={() => this.removeReview(review.id)}
+                onRate={(rating) => this.rateReview(review.id, rating)}
               />
             )
           }

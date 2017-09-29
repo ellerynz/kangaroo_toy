@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Star = ({selected=false}) => {
+const Star = ({selected=false, onClick=f=>f}) => {
   return (
-    <span>{selected ? '★' : '☆'}</span>
+    <span onClick={onClick}>{selected ? '★' : '☆'}</span>
   )
 }
 
 Star.PropTypes = {
-  selected: PropTypes.bool
+  selected: PropTypes.bool,
+  onClick: PropTypes.func
 }
 
 export default Star
