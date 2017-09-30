@@ -1,16 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import StarRating from './StarRating';
+import { rateReview, removeReview } from '../actions';
 
-const ReviewDisplay = ({name, rating, onRemove=f=>f, onRate=f=>f}) => {
+const ReviewDisplay = ({id, name, rating}, {store}) => {
   return (
     <li>
       <hr />
       <p>{name}</p>
-      <StarRating starsSelected={rating} onRate={onRate} />
-      <button onClick={onRemove}>Delete</button>
+      <StarRating
+        starsSelected={rating}
+        onRate={rating => store.dispatch(rateReview(id, rating))}
+      />
+      <button onClick={() => store.dispatch(removeReview(id))}>Delete</button>
     </li>
   )
+}
+
+ReviewDisplay.contextTypes = {
+  store: PropTypes.object
 }
 
 ReviewDisplay.defaultProps = {
