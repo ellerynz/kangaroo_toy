@@ -16,10 +16,6 @@ const ReviewDisplay = ({name, rating, onRate, onRemove}) => {
   )
 }
 
-ReviewDisplay.contextTypes = {
-  store: PropTypes.object
-}
-
 ReviewDisplay.defaultProps = {
   name: 'Blank',
   rating: 0
