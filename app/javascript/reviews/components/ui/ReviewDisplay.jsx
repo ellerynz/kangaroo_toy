@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import StarRating from './StarRating';
-import { rateReview, removeReview } from '../actions';
 
-const ReviewDisplay = ({id, name, rating}, {store}) => {
+const ReviewDisplay = ({name, rating, onRate, onRemove}) => {
   return (
     <li>
       <hr />
       <p>{name}</p>
       <StarRating
         starsSelected={rating}
-        onRate={rating => store.dispatch(rateReview(id, rating))}
+        onRate={onRate}
       />
-      <button onClick={() => store.dispatch(removeReview(id))}>Delete</button>
+      <button onClick={onRemove}>Delete</button>
     </li>
   )
 }
@@ -29,8 +28,8 @@ ReviewDisplay.defaultProps = {
 ReviewDisplay.propTypes = {
   name: PropTypes.string,
   rating: PropTypes.number,
-  onRemove: PropTypes.func,
-  onRate: PropTypes.func
+  onRate: PropTypes.func,
+  onRemove: PropTypes.func
 }
 
 export default ReviewDisplay

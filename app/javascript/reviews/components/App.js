@@ -1,10 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  BrowserRouter as Router,
-  Route
-} from 'react-router-dom';
-import ReviewList from './ReviewList';
+import { NewReview, Reviews } from './containers';
 
 
 class App extends React.Component {
@@ -24,9 +20,11 @@ class App extends React.Component {
   }
 
   render() {
-    const { reviews } = this.props.store.getState();
     return(
-      <ReviewList reviews={reviews} />
+      <div className="app">
+        <NewReview />
+        <Reviews />
+      </div>
     );
   }
 }
