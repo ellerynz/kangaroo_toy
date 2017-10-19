@@ -1,7 +1,6 @@
 import React from  'react';
 import PropTypes from 'prop-types';
 import ReviewDisplay from './ReviewDisplay';
-import AddReviewForm from './AddReviewForm';
 
 const ReviewList = ({ reviews=[], onRate=f=>f, onRemove=f=>f }) => {
   return (
