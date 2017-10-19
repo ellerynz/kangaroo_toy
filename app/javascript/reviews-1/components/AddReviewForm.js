@@ -29,7 +29,6 @@ const AddReviewForm = ({ onSubmit=f=>f }) => {
       <input type="submit" />
     </form>
   );
-
 }
 
 AddReviewForm.propTypes = {
