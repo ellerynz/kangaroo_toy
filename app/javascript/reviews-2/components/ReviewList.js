@@ -1,8 +1,12 @@
 import React from  'react';
 import PropTypes from 'prop-types';
 import ReviewDisplay from './ReviewDisplay';
+import { rateReview, removeReview } from '../actions';
 
-const ReviewList = ({ reviews=[], onRate=f=>f, onRemove=f=>f }) => {
+const ReviewList = ({store}) => {
+
+  const {reviews} = store.getState();
+
   return (
     <ul>
       {
@@ -12,8 +16,8 @@ const ReviewList = ({ reviews=[], onRate=f=>f, onRemove=f=>f }) => {
             id={review.id}
             name={review.name}
             rating={review.rating}
-            onRate={(rating) => onRate(review.id, rating)}
-            onRemove={() => onRemove(review.id)}
+            onRate={(rating) => store.dispatch(rateReview(review.id, rating))}
+            onRemove={() => store.dispatch(removeReview(review.id))}
           />
         )
       }
@@ -23,9 +27,7 @@ const ReviewList = ({ reviews=[], onRate=f=>f, onRemove=f=>f }) => {
 }
 
 ReviewList.PropTypes = {
-  reviews: PropTypes.array,
-  onRemove: PropTypes.func,
-  onRate: PropTypes.func
+  store: PropTypes.object
 }
 
 export default ReviewList

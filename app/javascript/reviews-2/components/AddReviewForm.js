@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { addReview } from '../actions';
 
-const AddReviewForm = ({ onSubmit=f=>f }) => {
+const AddReviewForm = ({store}) => {
   let _name, _rating;
 
   const submit = e => {
     e.preventDefault();
-    onSubmit(_name.value, _rating.value);
+    store.dispatch(addReview(_name.value, _rating.value));
     _name.value = '';
     _rating.value = '';
     _name.focus();
@@ -33,7 +34,7 @@ const AddReviewForm = ({ onSubmit=f=>f }) => {
 }
 
 AddReviewForm.propTypes = {
-  onSubmit: PropTypes.func
+  store: PropTypes.object
 }
 
 export default AddReviewForm
