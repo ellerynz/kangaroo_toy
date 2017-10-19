@@ -10,9 +10,9 @@ class App extends React.Component {
     super(props);
     this.state = {
       reviews: [
-        { id: 1, name: 'foo', rating: 5 },
-        { id: 2, name: 'bar', rating: 3 },
-        { id: 3, name: 'baz', rating: 1 }
+        { id: 1, name: 'It was good', rating: 5 },
+        { id: 2, name: 'Can\'t think of anything wrong', rating: 3 },
+        { id: 3, name: 'Best thing ever', rating: 1 }
       ]
     };
   }
@@ -47,7 +47,7 @@ class App extends React.Component {
     return(
       <div className="app">
         <AddReviewForm onSubmit={this.addReview.bind(this)} />
-        <ReviewList 
+        <ReviewList
           reviews={this.state.reviews}
           onRemove={this.removeReview.bind(this)}
           onRate={this.rateReview.bind(this)}

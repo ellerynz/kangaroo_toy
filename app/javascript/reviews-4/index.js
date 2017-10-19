@@ -10,9 +10,9 @@ const store = createStore(
   reducer,
   {
     reviews: [
-      { id: 1, name: 'foo', rating: 5 },
-      { id: 2, name: 'bar', rating: 5 },
-      { id: 3, name: 'baz', rating: 5 }
+      { id: 1, name: 'It was good', rating: 5 },
+      { id: 2, name: 'Can\'t think of anything wrong', rating: 3 },
+      { id: 3, name: 'Best thing ever', rating: 1 }
     ]
   },
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
@@ -21,7 +21,7 @@ const store = createStore(
 document.addEventListener('DOMContentLoaded', () => {
   render(
     <Provider store={store}>
-      <App store={store} />
+      <App />
     </Provider>,
     document.querySelector('#reviews')
   )
