@@ -4,7 +4,6 @@ import StarRating from './StarRating';
 
 const ReviewDisplay = ({ name, rating, onRate, onRemove }) => (
   <li>
-    <hr />
     <p>{name}</p>
     <StarRating
       starsSelected={rating}

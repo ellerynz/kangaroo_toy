@@ -10,7 +10,6 @@ class ReviewDisplay extends React.Component {
 
     return (
       <li>
-        <hr />
         <p>{name}</p>
         <StarRating
           starsSelected={rating}
