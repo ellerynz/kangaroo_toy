@@ -8,13 +8,13 @@ export const NewReview = connect(
   dispatch => ({
     onSubmit(name, rating) {
       dispatch(addReview(name, rating));
-    }
-  })
+    },
+  }),
 )(AddReviewForm);
 
 export const Reviews = connect(
   state => ({
-    reviews: state.reviews
+    reviews: state.reviews,
   }),
   dispatch => ({
     onRate(id, rating) {
@@ -22,6 +22,6 @@ export const Reviews = connect(
     },
     onRemove(id) {
       dispatch(removeReview(id));
-    }
-  })
+    },
+  }),
 )(ReviewList);

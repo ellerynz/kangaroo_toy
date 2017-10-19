@@ -5,46 +5,44 @@ import AddReviewForm from './AddReviewForm';
 import ReviewList from './ReviewList';
 
 class App extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
       reviews: [
         { id: 1, name: 'It was good', rating: 5 },
         { id: 2, name: 'Can\'t think of anything wrong', rating: 3 },
-        { id: 3, name: 'Best thing ever', rating: 1 }
-      ]
+        { id: 3, name: 'Best thing ever', rating: 1 },
+      ],
     };
   }
 
   addReview(name, rating) {
     const reviews = [
+      ...this.state.reviews,
       {
         id: v4(),
-        name: name,
-        rating: parseInt(rating, 10)
+        name,
+        rating: parseInt(rating, 10),
       },
-      ...this.state.reviews
-    ]
-    this.setState({reviews});
+    ];
+    this.setState({ reviews });
   }
 
 
   removeReview(id) {
     const reviews = this.state.reviews.filter(review => review.id != id);
-    this.setState({reviews});
+    this.setState({ reviews });
   }
 
 
   rateReview(id, rating) {
     const reviews = this.state.reviews.map(review =>
-      review.id === id ? {...review, rating} : review
-    );
-    this.setState({reviews});
+      (review.id === id ? { ...review, rating } : review));
+    this.setState({ reviews });
   }
 
   render() {
-    return(
+    return (
       <div className="app">
         <AddReviewForm onSubmit={this.addReview.bind(this)} />
         <ReviewList
@@ -57,4 +55,4 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default App;

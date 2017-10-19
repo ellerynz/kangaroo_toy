@@ -1,1 +1,1 @@
-import 'reviews'
+import 'reviews';

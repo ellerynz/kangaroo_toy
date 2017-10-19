@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import AddReviewForm from './ui/AddReviewForm';
-import ReviewList from './ui/ReviewList';
+import AddReviewForm from './presentational/AddReviewForm';
+import ReviewList from './presentational/ReviewList';
 import { addReview, rateReview, removeReview } from '../actions';
 
 export const NewReview = connect(
@@ -9,13 +8,13 @@ export const NewReview = connect(
   dispatch => ({
     onSubmit(name, rating) {
       dispatch(addReview(name, rating));
-    }
-  })
+    },
+  }),
 )(AddReviewForm);
 
 export const Reviews = connect(
   state => ({
-    reviews: state.reviews
+    reviews: state.reviews,
   }),
   dispatch => ({
     onRate(id, rating) {
@@ -23,6 +22,6 @@ export const Reviews = connect(
     },
     onRemove(id) {
       dispatch(removeReview(id));
-    }
-  })
+    },
+  }),
 )(ReviewList);

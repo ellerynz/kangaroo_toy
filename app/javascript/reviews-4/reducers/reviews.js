@@ -1,23 +1,23 @@
 import { ADD_REVIEW, RATE_REVIEW, REMOVE_REVIEW } from '../constants';
 
-export const review = (state={}, action) => {
+export const review = (state = {}, action) => {
   switch (action.type) {
     case ADD_REVIEW:
       return {
         id: action.id,
         name: action.name,
-        rating: action.rating
+        rating: action.rating,
       };
     case RATE_REVIEW:
-      return(
-        state.id === action.id ? {...state, rating: action.rating} : state
+      return (
+        state.id === action.id ? { ...state, rating: action.rating } : state
       );
     default:
       return state;
-  };
+  }
 };
 
-export const reviews = (state=[], action) => {
+export const reviews = (state = [], action) => {
   switch (action.type) {
     case ADD_REVIEW:
       return [...state, review({}, action)];
